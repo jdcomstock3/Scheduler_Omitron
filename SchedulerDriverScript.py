@@ -1,6 +1,3 @@
-# Scheduler_Omitron
-Candidate for Software Devoloper Position Code Challange
-
 """Scheduler Driver Script
 
 This script runs a task scheduler. Each task can be run at a specific time and/or run at a specific interval.
@@ -53,3 +50,36 @@ Developed and tested on python 3.8
 
 Written by: Jonathan D. Comstock
 """
+
+import argparse
+import input
+import comVar
+from schedule_ops import schedule_ops
+import sched_utilities
+import logging
+
+
+
+def parse_arg():
+    parser = argparse.ArgumentParser(description = 'Scheduler Script')
+    parser.add_argument('-f', dest='input_file', help='Name of the input config file', required=True)
+    return parser.parse_args()
+
+def main():
+    logging.basicConfig(level=logging.DEBUG, filename='schedule_log.log', filemode='a', format='%(asctime)s - %(levelname)s: %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+    logging.info('Begin new logging ')
+    comVar.init()
+    args = parse_arg()
+    configFilePath = args.input_file
+    logging.info('Config file loaded: %s', configFilePath)
+    print(sched_utilities.sched_utilities.printWelcome(configFilePath))
+    dataDict = sched_utilities.sched_utilities.parseConfig(configFilePath)
+    comVar.createDictIndex(dataDict)
+    inThread = input.InputThread(name='input')
+    inThread.start()
+    sched = schedule_ops(dataDict)
+    sched.scheduleInitialTask(sched.dataDict)
+    sched.mainRunner()
+
+if __name__ == "__main__":
+    main()

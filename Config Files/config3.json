@@ -1,0 +1,31 @@
+{
+     "task_config": [{
+                "task_name": "Scheduled Task",
+                "task_location": "C:\\Users\\Jonathan\\Scheduler_Omitron\\Simulate Work Programs\\WaitProgram10.exe",
+                "task_interval": 30,
+                "task_scheduled_time": "03/18/2020 21:12:00 EST",
+                "task_scheduled": "true"
+           },
+           {
+                "task_name": "Important Task",
+                "task_location": "C:\\Users\\Jonathan\\Scheduler_Omitron\\Simulate Work Programs\\WaitProgram10.exe",
+                "task_interval": 7,
+                "task_scheduled_time": "",
+                "task_scheduled": "true"
+           },
+           {
+                "task_name": "Test Task",
+                "task_location": "C:\\Users\\Jonathan\\Scheduler_Omitron\\Simulate Work Programs\\WaitProgram30.exe",
+                "task_interval": 65,
+                "task_scheduled_time": "",
+                "task_scheduled": "false"
+           },
+           {
+                "task_name": "Task1",
+                "task_location": "C:\\Users\\Jonathan\\Scheduler_Omitron\\Simulate Work Programs\\WaitProgram60.exe",
+                "task_interval": 0,
+                "task_scheduled_time": "",
+                "task_scheduled": "false"
+           }
+     ]
+}
